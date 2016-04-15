@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{977CFDED-2C86-437E-A5B8-FA94876DF924}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TestMediaLite</RootNamespace>
+    <AssemblyName>TestMediaLite</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\2\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Commandlineparameters>C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\examples\csharp\TestMediaLite\data\city9_all.data SERVER=localhost;DATABASE=foursquare;UID=root;PASSWORD=mopuvake86</Commandlineparameters>
+    <Externalconsole>true</Externalconsole>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\2\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+    <Commandlineparameters>C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\examples\csharp\TestMediaLite\data\city0_all.data 1</Commandlineparameters>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="C5">
+      <HintPath>..\..\..\..\src\MyMediaLite\bin\Debug\C5.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\..\..\..\src\MyMediaLite\bin\Debug\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics.IO">
+      <HintPath>..\..\..\..\src\MyMediaLite\bin\Debug\MathNet.Numerics.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+    <Reference Include="System.Data" />
+    <Reference Include="Extreme.Numerics.Net40, Version=5.1.14287.0, Culture=neutral, PublicKeyToken=9e513770f58567b2" />
+    <Reference Include="Mono.Posix">
+      <HintPath>..\..\..\..\src\MyMediaLite\bin\Debug\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="Extreme.Numerics.Version4x.Net40, Version=4.2.11333.0, Culture=neutral, PublicKeyToken=9e513770f58567b2" />
+    <Reference Include="alglibnet2">
+      <HintPath>alglibnet2.dll</HintPath>
+    </Reference>
+    <Reference Include="MyMediaLite">
+      <HintPath>..\..\..\..\src\MyMediaLite\bin\Release\MyMediaLite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rating_prediction.cs" />
+    <Compile Include="DBConnect.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

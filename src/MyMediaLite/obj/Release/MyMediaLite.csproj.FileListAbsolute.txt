@@ -1,0 +1,14 @@
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\MyMediaLite.xml
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\MyMediaLite.dll
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\alglibnet2.dll
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\C5.dll
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\Extreme.Numerics.Net40.dll
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\MathNet.Numerics.dll
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\MathNet.Numerics.IO.dll
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\Mono.Posix.dll
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\MySql.Data.dll
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\MathNet.Numerics.IO.pdb
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\MathNet.Numerics.IO.xml
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\bin\Release\Extreme.Numerics.Net40.xml
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\obj\Release\MyMediaLite.csprojResolveAssemblyReference.cache
+C:\Users\Entwickler\studium\Masterarbeit\MyMediaLite\src\MyMediaLite\obj\Release\MyMediaLite.dll
