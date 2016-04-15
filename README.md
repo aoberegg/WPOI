@@ -9,4 +9,4 @@ WPOI/src/MyMediaLite/RatingPrediction/WeatherContextAwareItemRecommender.cs
 An example how to use it can be found in:
 WPOI/examples/csharp/TestMediaLite/TestMediaLite/rating_prediction.cs
 
-Note that the algorithm is just runable when included in MyMediaLite.
+Note that the algorithm is just runable when included in MyMediaLite (https://github.com/zenogantner/MyMediaLite).
