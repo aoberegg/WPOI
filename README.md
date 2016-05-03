@@ -11,5 +11,5 @@ WPOI/examples/csharp/TestMediaLite/TestMediaLite/rating_prediction.cs
 
 Note that the algorithm is just runable when included in MyMediaLite (https://github.com/zenogantner/MyMediaLite).
 
-Further Details in "Technical Documentation.pdf"
+Further Details in <bf>Technical Documentation.pdf</bf>
 
