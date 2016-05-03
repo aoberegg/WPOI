@@ -44,14 +44,11 @@ namespace TestMediaLite
 		private void Initialize(string connection_string)
 		{
 			server = "localhost";
-			database = "aoberegger";
+			database = "foursquare";
 			uid = "aoberegger";
-			password = "SSlamvxZ";
+			password = "bla";
 
-//			server = "localhost";
-//			database = "foursquare";
-//			uid = "root";
-//			password = "mopuvake86";
+
 			string connectionString;
 
 			connectionString = connection_string;
