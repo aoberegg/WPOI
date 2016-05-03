@@ -668,36 +668,50 @@ namespace MyMediaLite.RatingPrediction
 			return Convert.ToInt32((feature - minFeature) / (maxFeature - minFeature) * (rangeSize-1));
 		}
 
-		public void createTimeFeatureMapper(){
+		public void createTimeFeatureMapper(bool time = false){
 			DBConnect conn = new DBConnect (connection_string);
 			List<string>[] res;
-			if (cityId != 0) {
-				res = conn.Select ("select max(" + weatherFeature + "), min(" + weatherFeature + ") from DAILY_WEATHER" +
-				                     " dw inner join HOURLY_WEATHER hw on(hw.daily_weather_id = dw.id) where city_id = " + cityId.ToString (), 2);
-				maxFeature = double.Parse (res [0] [0]);
-				minFeature = double.Parse (res [1] [0]);
-				res = conn.Select ("select hw.unix_utc_timestamp, " + weatherFeature + " from DAILY_WEATHER" +
-				" dw inner join HOURLY_WEATHER hw on(hw.daily_weather_id = dw.id) where city_id = " + cityId.ToString () + " and " + weatherFeature + " is not NULL ", 2);
+			if (!time){
 
-			} else {
-				res = conn.Select ("select max(" + weatherFeature + "), min(" + weatherFeature + ") from DAILY_WEATHER" +
-					" dw inner join HOURLY_WEATHER hw on(hw.daily_weather_id = dw.id) ", 2);
-				maxFeature = double.Parse (res [0] [0]);
-				minFeature = double.Parse (res [1] [0]);
-				res = conn.Select ("select hw.unix_utc_timestamp, " + weatherFeature + " from DAILY_WEATHER" +
-					" dw inner join HOURLY_WEATHER hw on(hw.daily_weather_id = dw.id) where " + weatherFeature +" is not NULL " , 2);
-			}
-			List<string> timestamps = res [0];
-			List<string> feature = res [1];
-			timeFeatureClassMapper = new Dictionary<DateTime, int> ();
+				if (cityId != 0) {
+					res = conn.Select ("select max(" + weatherFeature + "), min(" + weatherFeature + ") from DAILY_WEATHER" +
+					                     " dw inner join HOURLY_WEATHER hw on(hw.daily_weather_id = dw.id) where city_id = " + cityId.ToString (), 2);
+					maxFeature = double.Parse (res [0] [0]);
+					minFeature = double.Parse (res [1] [0]);
+					res = conn.Select ("select hw.unix_utc_timestamp, " + weatherFeature + " from DAILY_WEATHER" +
+					" dw inner join HOURLY_WEATHER hw on(hw.daily_weather_id = dw.id) where city_id = " + cityId.ToString () + " and " + weatherFeature + " is not NULL ", 2);
 
-			int i = 0;
-			foreach (string timestamp in timestamps) {
-				var time = new DateTime (int.Parse (timestamp) * 10000000L).AddYears (1969);
-				var offset = TimeZone.CurrentTimeZone.GetUtcOffset (time);
-				if(!timeFeatureClassMapper.ContainsKey(time-offset))
-					timeFeatureClassMapper.Add (time - offset, mapFeatureInRange (double.Parse (feature [i])));
-				i++;
+				} else {
+					res = conn.Select ("select max(" + weatherFeature + "), min(" + weatherFeature + ") from DAILY_WEATHER" +
+						" dw inner join HOURLY_WEATHER hw on(hw.daily_weather_id = dw.id) ", 2);
+					maxFeature = double.Parse (res [0] [0]);
+					minFeature = double.Parse (res [1] [0]);
+					res = conn.Select ("select hw.unix_utc_timestamp, " + weatherFeature + " from DAILY_WEATHER" +
+						" dw inner join HOURLY_WEATHER hw on(hw.daily_weather_id = dw.id) where " + weatherFeature +" is not NULL " , 2);
+				}
+				List<string> timestamps = res [0];
+				List<string> feature = res [1];
+				timeFeatureClassMapper = new Dictionary<DateTime, int> ();
+
+				int i = 0;
+				foreach (string timestamp in timestamps) {
+					var time = new DateTime (int.Parse (timestamp) * 10000000L).AddYears (1969);
+					var offset = TimeZone.CurrentTimeZone.GetUtcOffset (time);
+					if(!timeFeatureClassMapper.ContainsKey(time-offset))
+						timeFeatureClassMapper.Add (time - offset, mapFeatureInRange (double.Parse (feature [i])));
+					i++;
+				}
+			}else{
+				res = conn.Select ("select hw.unix_utc_timestamp, " + weatherFeature + " from DAILY_WEATHER" +
+					" dw inner join HOURLY_WEATHER hw on(hw.daily_weather_id = dw.id) where city_id = " + cityId.ToString () + " and " + weatherFeature + " is not NULL ", 2);
+				int i = 0;
+				foreach (string timestamp in timestamps) {
+					var time = new DateTime (int.Parse (timestamp) * 10000000L).AddYears (1969);
+					var offset = TimeZone.CurrentTimeZone.GetUtcOffset (time);
+					if(!timeFeatureClassMapper.ContainsKey(time-offset))
+						timeFeatureClassMapper.Add (time - offset, mapFeatureInRange (double.Parse (feature [i])));
+					i++;
+				}
 			}
 		}
 
