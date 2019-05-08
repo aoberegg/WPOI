@@ -51,7 +51,7 @@ namespace TestMediaLite
 //			server = "localhost";
 //			database = "foursquare";
 //			uid = "root";
-//			password = "mopuvake86";
+//			password = "changepw";
 			string connectionString;
 
 			connectionString = connection_string;
